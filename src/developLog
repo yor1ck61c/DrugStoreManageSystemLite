@@ -1,0 +1,31 @@
+6.22内容：完成首页√，建库(2/?)，管理员系统CRUD √
+管理员页面功能：1.查看当前所有库存 √
+              2.增加一种药 √
+              3.删除一种药 √
+              4.更改药品信息 √
+              5.查看当前开店流水√
+6.23内容：完成用户购物车设计（用户表，购物车表）
+功能:1.用户界面√
+    2.用户登录注册√
+    3.管理员查看用户信息√
+    4.用户余额显示√
+
+
+过程中出现的bug/异常：1.管理员登录验证的sql语法错误（已解决）
+                      异常原因：template方法忘记传参。
+                    2.用户名密码正确却验证失败 (已解决)
+                      bug原因：表单name的传参名和javaBean的属性名不一致，导致BeanUtils.populate方法映射失败。
+                    3.insert语句插入id时为空，插入失败异常(已解决)
+                      异常原因:sql语句中用?作为占位符，null应放在template方法中。
+                    4.新增药品时发现药效插入失败（已解决）
+                      bug原因:textarea标签name属性值写错，导致在servlet中无法获取数据。
+                    5.分页查询时sql语法异常（已解决）
+                      异常原因：语法应为 select * from 表名 limit ?,?
+                    6.javax.el.PropertyNotFoundException(已解决)
+                      异常原因：使用EL表达式时，应注意属性名要与javaBean中的属性名相同，并且有该属性的getter方法。
+                    7.BeanPropertyRowMapper映射问题(已解决)
+                      bug原因：数据库字段名与javaBean中属性名不一致，导致映射失败。
+                    8.页面跳转错误（已解决）
+                      bug原因:传参flag引导问题
+                      request.getParameter获取的是get或post方式传进的参数
+                      request.getSetAttribute只能用getAttribute。
